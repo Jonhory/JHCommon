@@ -47,6 +47,20 @@ func count(_ string: String?) -> Int {
     return string!.characters.count
 }
 
+/// 自定义Log
+///
+/// - Parameters:
+///   - messsage: 正常输出内容
+///   - file: 文件名
+///   - funcName: 方法名
+///   - lineNum: 行数
+func WLog<T>(_ messsage: T, file: String = #file, funcName: String = #function, lineNum: Int = #line) {
+    #if DEBUG
+        let fileName = (file as NSString).lastPathComponent
+        print("\(fileName):(\(lineNum))======>>>>>>\n\(messsage)")
+    #endif
+}
+
 //MARK: - Extension
 
 extension Optional {
